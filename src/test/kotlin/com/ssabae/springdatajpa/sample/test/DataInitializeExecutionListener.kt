@@ -9,7 +9,7 @@ class DataInitializeExecutionListener : AbstractTestExecutionListener() {
     override fun afterTestMethod(testContext: TestContext) {
         val applicationContext = testContext.applicationContext
         val transactionTemplate = applicationContext.getBean(TransactionTemplate::class.java)
-        transactionTemplate.execute { status ->
+        transactionTemplate.execute {
             val em = applicationContext.getBean(EntityManager::class.java)
             em.createQuery("SELECT i FROM Issue i").resultStream.forEach(em::remove)
             em.createQuery("SELECT l FROM Label l").resultStream.forEach(em::remove)

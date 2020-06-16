@@ -1,6 +1,5 @@
 package com.ssabae.springdatajpa.sample.coment
 
-import org.springframework.data.annotation.CreatedBy
 import java.time.Instant
 import java.util.*
 import javax.persistence.*
@@ -8,7 +7,6 @@ import javax.validation.Valid
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.PastOrPresent
 import javax.validation.constraints.Positive
-
 
 @Table(indexes = [
     Index(columnList = "issueId"),

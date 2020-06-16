@@ -39,7 +39,7 @@ class Repo (
 
 ) {
     companion object {
-        private val ID_PREDIX_FORMAT = DateTimeFormatter
+        private val ID_PREFIX_FORMAT = DateTimeFormatter
             .ofPattern("yyyyMMddHHmmss")
             .withZone(ZoneId.of("Asia/Seoul"))
 
@@ -48,7 +48,7 @@ class Repo (
                 throw IllegalArgumentException("Repo is already set id. id: ${repo.id}")
             }
             return StringJoiner("-")
-                .add(ID_PREDIX_FORMAT.format(repo.createAt))
+                .add(ID_PREFIX_FORMAT.format(repo.createAt))
                 .add(repo.name)
                 .toString()
         }

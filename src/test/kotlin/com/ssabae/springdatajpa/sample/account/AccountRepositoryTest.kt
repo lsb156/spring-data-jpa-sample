@@ -49,7 +49,7 @@ internal class AccountRepositoryTest {
         this.sut.save(account)
 
         // when
-        val actual = transactionTemplate.execute { status ->
+        val actual = transactionTemplate.execute {
             val load = this.sut.findById(account.id!!).get()
             this.sut.delete(load)
             load
