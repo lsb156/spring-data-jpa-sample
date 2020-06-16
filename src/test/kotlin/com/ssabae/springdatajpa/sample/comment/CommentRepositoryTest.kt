@@ -1,5 +1,8 @@
-package com.ssabae.springdatajpa.sample.coment
+package com.ssabae.springdatajpa.sample.comment
 
+import com.ssabae.springdatajpa.sample.coment.Comment
+import com.ssabae.springdatajpa.sample.coment.CommentContent
+import com.ssabae.springdatajpa.sample.coment.CommentRepository
 import com.ssabae.springdatajpa.sample.test.DataInitializeExecutionListener
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
@@ -21,8 +24,22 @@ internal class CommentRepositoryTest {
     private final val issue1Id: UUID = UUID.randomUUID()
     private final val creatorId: UUID = UUID.randomUUID()
     val comments = listOf(
-        Comment(issueId = issue1Id, content = CommentContent(body = "comment 1", mimeType = "text/plain"), createdBy = creatorId),
-        Comment(issueId = issue1Id, content = CommentContent(body = "comment 2", mimeType = "text/plain"), createdBy = creatorId)
+        Comment(
+            issueId = issue1Id,
+            content = CommentContent(
+                body = "comment 1",
+                mimeType = "text/plain"
+            ),
+            createdBy = creatorId
+        ),
+        Comment(
+            issueId = issue1Id,
+            content = CommentContent(
+                body = "comment 2",
+                mimeType = "text/plain"
+            ),
+            createdBy = creatorId
+        )
     )
 
     @Test
