@@ -21,10 +21,10 @@ internal class AccountRepositoryTest {
     val accounts: List<Account> = listOf(
         Account(
             id = UUID.randomUUID(),
-            loginId = "navercorp.com",
-            name = "naver",
+            loginId = "test.com",
+            name = "test",
             state = AccountState.ACTIVE,
-            email = "naver@navercorp.com"
+            email = "test@test.com"
         )
     )
 

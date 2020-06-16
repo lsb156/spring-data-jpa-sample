@@ -11,7 +11,7 @@ class DataInitializeExecutionListener : AbstractTestExecutionListener() {
         val transactionTemplate = applicationContext.getBean(TransactionTemplate::class.java)
         transactionTemplate.execute { status ->
             val em = applicationContext.getBean(EntityManager::class.java)
-//            em.createQuery("SELECT i FROM Issue i").resultStream.forEach(em::remove)
+            em.createQuery("SELECT i FROM Issue i").resultStream.forEach(em::remove)
 //            em.createQuery("SELECT l FROM Label l").resultStream.forEach(em::remove)
 //            em.createQuery("SELECT r FROM Repo r").resultStream.forEach(em::remove)
             em.createQuery("SELECT c FROM Comment c").resultStream.forEach(em::remove)
