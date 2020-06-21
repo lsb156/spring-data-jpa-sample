@@ -19,27 +19,27 @@ class Issue (
     @Column(length = 36)
     var id: UUID? = null,
 
-    @PositiveOrZero
+    @get:PositiveOrZero
     @Version
     var version: Long? = null,
 
-    @NotBlank
-    @Size(max = 200)
+    @get:NotBlank
+    @get:Size(max = 200)
     @Column(length = 200, nullable = false, updatable = false)
     var repoId: String,
 
-    @NotNull
-    @PositiveOrZero
+    @get:NotNull
+    @get:PositiveOrZero
     @Column(nullable = false, updatable = false)
     var issueNo: Long,
 
-    @NotNull
+    @get:NotNull
     @Enumerated(EnumType.STRING)
     @Column(length = 20, nullable = false)
     var status: Status,
 
-    @NotBlank
-    @Size(max = 200)
+    @get:NotBlank
+    @get:Size(max = 200)
     @Column(length = 200, nullable = false)
     var title: String,
 
@@ -54,12 +54,12 @@ class Issue (
     @org.hibernate.annotations.BatchSize(size = 20)
     var attachedLabels: List<IssueAttachedLabel> = emptyList(),
 
-    @NotNull
+    @get:NotNull
     @Column(length = 36, nullable = false, updatable = false)
     var createBy: UUID,
 
-    @NotNull
-    @PastOrPresent
+    @get:NotNull
+    @get:PastOrPresent
     @Column(nullable = false, updatable = false)
     val createAt: Instant = Instant.now()
 

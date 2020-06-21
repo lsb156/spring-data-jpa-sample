@@ -13,18 +13,18 @@ class Label (
     @Column(name = "id")
     var natualId: UUID = UUID.randomUUID(),
 
-    @NotBlank
-    @Size(max = 200)
+    @get:NotBlank
+    @get:Size(max = 200)
     @Column(length = 200, nullable = false, updatable = false)
     var repoId: String,
 
-    @NotBlank
-    @Size(max = 100)
+    @get:NotBlank
+    @get:Size(max = 100)
     @Column(length = 100, nullable = false)
     var name: String,
 
-    @NotBlank
-    @Size(max = 20)
+    @get:NotBlank
+    @get:Size(max = 20)
     @Column(length = 20, nullable = false)
     var color: String
 

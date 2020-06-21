@@ -7,6 +7,7 @@ import javax.validation.Valid
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.PastOrPresent
 import javax.validation.constraints.Positive
+import javax.validation.constraints.PositiveOrZero
 
 @Table(indexes = [
     Index(columnList = "issueId"),
@@ -18,22 +19,22 @@ class Comment (
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
 
-    @Positive
+    @get:PositiveOrZero
     @Version
     var version: Long? = null,
 
-    @NotNull
+    @get:NotNull
     var issueId: UUID,
 
     @Valid
     @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.EAGER, optional = false, orphanRemoval = true)
     var content: CommentContent,
 
-    @NotNull
+    @get:NotNull
     var createdBy: UUID,
 
-    @NotNull
-    @PastOrPresent
+    @get:NotNull
+    @get:PastOrPresent
     var createdAt: Instant = Instant.now()
 
 )

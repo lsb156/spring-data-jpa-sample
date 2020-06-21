@@ -20,20 +20,20 @@ class Repo (
     @Id
     var id: String? = null,
 
-    @NotBlank
-    @Size(max = 100)
+    @get:NotBlank
+    @get:Size(max = 100)
     @Column(length = 100, nullable = false)
     var name: String,
 
-    @Size(max = 255)
+    @get:Size(max = 255)
     var description: String,
 
-    @NotNull
+    @get:NotNull
     @Column(nullable = false, updatable = false)
     var createdBy: UUID,
 
-    @NotNull
-    @PastOrPresent
+    @get:NotNull
+    @get:PastOrPresent
     @Column(nullable = false, updatable = false)
     var createAt: Instant = Instant.now()
 

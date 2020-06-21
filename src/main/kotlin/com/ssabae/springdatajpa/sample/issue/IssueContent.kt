@@ -12,13 +12,13 @@ class IssueContent (
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
 
-    @NotNull
+    @get:NotNull
     @Lob
     @Column(nullable = false, updatable = false)
     var body: String,
 
-    @NotBlank
-    @Size(max = 20)
+    @get:NotBlank
+    @get:Size(max = 20)
     @Column(length = 20, nullable = false, updatable = false)
     var mimeType: String
 ) {

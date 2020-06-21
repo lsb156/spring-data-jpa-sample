@@ -14,11 +14,11 @@ class IssueAttachedLabel (
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
 
-    @NotNull
+    @get:NotNull
     @Column(nullable = false, updatable = false)
     var labelId: UUID,
 
-    @NotNull
+    @get:NotNull
     @PastOrPresent
     @Column(nullable = false, updatable = false)
     var attachedAt: Instant
